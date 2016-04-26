@@ -1,0 +1,6 @@
+framework module Pods_TagListViewStoryboardBug {
+  umbrella header "Pods-TagListViewStoryboardBug-umbrella.h"
+
+  export *
+  module * { export * }
+}

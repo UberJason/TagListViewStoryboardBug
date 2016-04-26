@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,203 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cb4-4G-StS">
+                                <rect key="frame" x="249" y="265" width="102" height="30"/>
+                                <state key="normal" title="Present Fat VC"/>
+                                <connections>
+                                    <segue destination="M8e-Y3-f2M" kind="presentation" id="Xm0-Uz-9Gv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuy-ix-KYn">
+                                <rect key="frame" x="245" y="305" width="111" height="30"/>
+                                <state key="normal" title="Present Thin VC"/>
+                                <connections>
+                                    <segue destination="0s3-1I-fGb" kind="presentation" id="Kuz-pW-xPS"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cb4-4G-StS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-20" id="LZd-K5-ieJ"/>
+                            <constraint firstItem="vuy-ix-KYn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XVl-54-FgT"/>
+                            <constraint firstItem="cb4-4G-StS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cb1-j8-BIe"/>
+                            <constraint firstItem="cb4-4G-StS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="246" id="ftx-dq-ku3"/>
+                            <constraint firstItem="vuy-ix-KYn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="20" id="hJp-xL-HUR"/>
+                            <constraint firstItem="cb4-4G-StS" firstAttribute="leading" secondItem="vuy-ix-KYn" secondAttribute="leading" id="xmy-Mm-NFL"/>
+                            <constraint firstItem="vuy-ix-KYn" firstAttribute="top" secondItem="cb4-4G-StS" secondAttribute="bottom" constant="8" symbolic="YES" id="yiz-gW-ERE"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ftx-dq-ku3"/>
+                                <exclude reference="xmy-Mm-NFL"/>
+                                <exclude reference="yiz-gW-ERE"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Fat VC (Bug)-->
+        <scene sceneID="ucj-DE-PvK">
+            <objects>
+                <tableViewController storyboardIdentifier="fatVC" id="HVT-ju-w5d" customClass="TableViewController" customModule="TagListViewStoryboardBug" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="uNQ-c8-gnR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tagCell" rowHeight="216" id="Ize-8P-D2x" customClass="TagsCell" customModule="TagListViewStoryboardBug" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="216"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ize-8P-D2x" id="Esr-Cz-pgl">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="215"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHM-c3-lht" customClass="TagListView" customModule="TagListView">
+                                            <rect key="frame" x="8" y="8" width="584" height="199"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="paddingY">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="paddingX">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hHM-c3-lht" firstAttribute="trailing" secondItem="Esr-Cz-pgl" secondAttribute="trailingMargin" id="56e-h0-gse"/>
+                                        <constraint firstItem="hHM-c3-lht" firstAttribute="leading" secondItem="Esr-Cz-pgl" secondAttribute="leadingMargin" id="hzG-de-gvX"/>
+                                        <constraint firstItem="hHM-c3-lht" firstAttribute="bottom" secondItem="Esr-Cz-pgl" secondAttribute="bottomMargin" id="pcV-nV-ryw"/>
+                                        <constraint firstItem="hHM-c3-lht" firstAttribute="top" secondItem="Esr-Cz-pgl" secondAttribute="topMargin" id="rkQ-Jk-3Jt"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="tagListView" destination="hHM-c3-lht" id="y2z-MH-3Jp"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="HVT-ju-w5d" id="nmL-GU-7f6"/>
+                            <outlet property="delegate" destination="HVT-ju-w5d" id="s9p-eN-FMp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Fat VC (Bug)" id="kbU-Yo-GQI">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="nf9-NN-NUk">
+                            <connections>
+                                <action selector="doneTapped:" destination="HVT-ju-w5d" id="jO9-BJ-UqO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nim-JS-Hv7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1927" y="140"/>
+        </scene>
+        <!--Thin VC (Works)-->
+        <scene sceneID="Iq2-8d-H3M">
+            <objects>
+                <tableViewController storyboardIdentifier="thinVC" id="lDA-2f-c2L" customClass="TableViewController" customModule="TagListViewStoryboardBug" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="yd3-T8-TRu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tagCell" rowHeight="216" id="7fp-aS-Mcb" customClass="TagsCell" customModule="TagListViewStoryboardBug" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="216"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7fp-aS-Mcb" id="sUB-1Y-okk">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buz-Ud-5hR" customClass="TagListView" customModule="TagListView">
+                                            <rect key="frame" x="8" y="8" width="359" height="199"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="paddingY">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="paddingX">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="buz-Ud-5hR" firstAttribute="trailing" secondItem="sUB-1Y-okk" secondAttribute="trailingMargin" id="5g1-vR-dbG"/>
+                                        <constraint firstItem="buz-Ud-5hR" firstAttribute="top" secondItem="sUB-1Y-okk" secondAttribute="topMargin" id="6ly-bt-p2C"/>
+                                        <constraint firstItem="buz-Ud-5hR" firstAttribute="leading" secondItem="sUB-1Y-okk" secondAttribute="leadingMargin" id="9vC-kN-uLI"/>
+                                        <constraint firstItem="buz-Ud-5hR" firstAttribute="bottom" secondItem="sUB-1Y-okk" secondAttribute="bottomMargin" id="ZMq-r5-9Nh"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="tagListView" destination="buz-Ud-5hR" id="iaT-JX-8L6"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lDA-2f-c2L" id="1D8-W1-bXl"/>
+                            <outlet property="delegate" destination="lDA-2f-c2L" id="Rvf-DC-EsU"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Thin VC (Works)" id="FNO-6p-qQG">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="gsO-sF-TnA">
+                            <connections>
+                                <action selector="doneTapped:" destination="lDA-2f-c2L" id="6eK-GD-lzK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="600"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Asz-SN-qOT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1927" y="842"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cu5-y1-aV8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M8e-Y3-f2M" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cTl-af-CSj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HVT-ju-w5d" kind="relationship" relationship="rootViewController" id="b53-9b-Ac8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ykU-h3-1ds" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1115" y="140"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="v3l-gF-BHz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0s3-1I-fGb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n1g-mZ-MmO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lDA-2f-c2L" kind="relationship" relationship="rootViewController" id="zZ1-rv-7Vb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FId-wB-ais" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1115" y="842"/>
         </scene>
     </scenes>
 </document>
